@@ -1,11 +1,11 @@
 import { Route } from "react-router-dom";
 import React from "react";
 import Home from "./home/Home";
-import AnimalCard from "./animal/AnimalCard";
+import AnimalList from "../modules/modules/animal/AnimalList";
 //only include these once they are built - previous practice exercise
-import LocationCard from "./location/LocationCard";
-import EmployeeCard from "./employee/EmployeeCard";
-import OwnerCard from "./owner/OwnerCard";
+import LocationList from "../modules/modules/location/LocationList";
+import EmployeeList from "../modules/modules/employee/EmployeeList";
+import OwnerList from "../modules/modules/owner/OwnerList";
 
 const ApplicationViews = () => {
   return (
@@ -17,28 +17,25 @@ const ApplicationViews = () => {
           return <Home />;
         }}
       />
-      <Route
-        path="/animals"
-        render={props => {
-          return <AnimalCard />;
-        }}
-      />
+      <Route path="/animals" render={(props) => {
+      return <AnimalList />
+    }} />
       <Route
         path="/employees"
         render={props => {
-          return <EmployeeCard />;
+          return <EmployeeList />;
         }}
       />
       <Route
         path="/locations"
         render={props => {
-          return <LocationCard />;
+          return <LocationList />;
         }}
       />
       <Route
         path="/owners"
         render={props => {
-          return <OwnerCard />;
+          return <OwnerList />;
         }}
       />
     </React.Fragment>
