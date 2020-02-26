@@ -8,7 +8,9 @@ const AnimalCard = props => {
     <div className="card">
       <div className="card-content">
         <picture>
-          <img src={require('./2018-03-17 16.26.31-1.jpg')} alt="My Dog" />
+          {/* vvv this follows the path to the "imageUrl" in the JSON file. path needs to be from the 
+          same level as the folder. In turn renders a unique image on each card vvv */}
+          <img src={require(`./dogImages/${props.animal.imageUrl}`)} alt="My Dog" />
         </picture>
         {/* vvv pulls in props from AnimalList vvv */}
         <h3>Name: <span className="card-petname">
