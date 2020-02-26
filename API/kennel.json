@@ -2,13 +2,13 @@
   "animals": [
     {
       "id": 2,
-      "name": "Billy-Bob",
-      "breed": "Pitbull"
+      "name": "billy-Bob",
+      "breed": "pitbull"
     },
     {
       "id": 1,
-      "name": "Piper",
-      "breed": "Mutt"
+      "name": "piper",
+      "breed": "mutt"
     }
   ],
   "employees": [
@@ -24,11 +24,6 @@
     }
   ],
   "locations": [
-    {
-      "id": 1,
-      "name": "Shawshank",
-      "address": "666 Shawshank Ave, Castle Rock, MA"
-    },
     {
       "id": 2,
       "name": "Folsom",
