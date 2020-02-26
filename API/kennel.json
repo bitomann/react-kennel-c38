@@ -3,12 +3,14 @@
     {
       "id": 2,
       "name": "billy-Bob",
-      "breed": "pitbull"
+      "breed": "pitbull",
+      "imageUrl": "images.jpeg"
     },
     {
       "id": 1,
       "name": "piper",
-      "breed": "mutt"
+      "breed": "mutt",
+      "imageUrl": "2018-03-17 16.26.31-1.jpg"
     }
   ],
   "employees": [
