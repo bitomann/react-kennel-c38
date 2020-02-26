@@ -4,7 +4,7 @@ import './AnimalDetail.css'
 import {firstLetterCase} from '../helpers'
 
 const AnimalDetail = props => {
-  const [animal, setAnimal] = useState({ name: "", breed: "" });
+  const [animal, setAnimal] = useState({ name: "", breed: "", imageUrl: "images.jpeg" });
   const [isLoading, setIsLoading] = useState(true);
 
 const handleDelete = () => {
@@ -21,7 +21,8 @@ AnimalManager.delete(props.animalId)
       .then(animal => {
         setAnimal({
           name: animal.name,
-          breed: animal.breed
+          breed: animal.breed,
+          imageUrl: animal.imageUrl
         });
         setIsLoading(false);
       });
@@ -31,7 +32,7 @@ AnimalManager.delete(props.animalId)
     <div className="card">
       <div className="card-content">
         <picture>
-          <img src={require('./dog.svg')} alt="My Dog" />
+          <img src={require(`./dogImages/${animal.imageUrl}`)} alt="My Dog" />
         </picture>
         <h3>Name: <span style={{ color: 'darkslategrey' }}>{firstLetterCase(animal.name)}</span></h3>
         <p>Breed: {firstLetterCase(animal.breed)}</p>
