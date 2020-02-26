@@ -30,14 +30,16 @@ const ApplicationViews = () => {
 <Route path="/animals/:animalId(\d+)" render={(props) => {
   // Pass the animalId to the AnimalDetailComponent
   return <AnimalDetail animalId={parseInt(props.match.params.animalId)}
-  {...props}
+  // vvv {...props} = 'Spread Operator' - for <AnimalDetail> to have access 
+  // to the router history, we need to pass those props to the component. 
+  // All of the 'props' are copied onto the component's props. vvv //
+  {...props}/>
   //  ^^^  This is a new route to handle a URL with the following pattern:
   // http://localhost:3000/animals/1 or what ever the id is
 
   // It will not handle the following URL because the `(\d+)`
   // matches only numbers after the final slash in the URL
   // // http://localhost:3000/animals/jack ^^^ 
-  />
 }} />
       <Route
         path="/employees"
@@ -53,7 +55,8 @@ const ApplicationViews = () => {
       />
       <Route path="/locations/:locationId(\d+)"
       render={(props) => {
-        return <LocationDetail locationId={parseInt(props.match.params.locationId)}/>
+        return <LocationDetail locationId={parseInt(props.match.params.locationId)}
+       {...props}/>
       }} />
       <Route
         path="/owners"
