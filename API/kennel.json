@@ -1,60 +1,50 @@
 {
-    "animals": [
-      {
-        "id": 2,
-        "name": "Decker",
-        "breed": "German Sheperd"
-      },
-      {
-        "id": 3,
-        "name": "Esme",
-        "breed": "Pitbull"
-      },
-      {
-        "name": "Piper",
-        "breed": "Mutt",
-        "id": 4
-      }
-    ],
-    "employees": [
-      {
-        "id": 1,
-        "name": "Slender Mann",
-        "position": "Dog Whisperer"
-      },
-      {
-        "id": 3,
-        "name": "Freaky Fred",
-        "position": "Cat Corraler"
-      }
-    ],
-    "locations": [
-      {
-        "id": 1,
-        "name": "Shawshank",
-        "address": "666 Shawshank Ave, Castle Rock, MA"
-      },
-      {
-        "id": 2,
-        "name": "Folsom",
-        "address": "777 Blues Cr., Folsom, CA"
-      }
-    ],
-    "owners": [
-      {
-        "id": 1,
-        "name": "Mark Muggle",
-        "phone": "(707)555-1234"
-      },
-      {
-        "id": 2,
-        "name": "Christopher Calico",
-        "phone": "(818)666-4321"
-      },
-      {
-        "id": 3,
-        "name": "Chet Soda",
-        "phone": "(213)777-6789"
-      }
-    ]
-  }
+  "animals": [
+    {
+      "name": "Piper",
+      "breed": "Mutt",
+      "id": 4
+    },
+    {
+      "id": 2,
+      "name": "Billy-Bob",
+      "breed": "Pitbull"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Slender Mann",
+      "position": "Dog Whisperer"
+    },
+    {
+      "id": 3,
+      "name": "Freaky Fred",
+      "position": "Cat Corraler"
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "name": "Shawshank",
+      "address": "666 Shawshank Ave, Castle Rock, MA"
+    },
+    {
+      "id": 2,
+      "name": "Folsom",
+      "address": "777 Blues Cr., Folsom, CA"
+    }
+  ],
+  "owners": [
+    {
+      "id": 2,
+      "name": "Christopher Calico",
+      "phone": "(818)666-4321"
+    },
+    {
+      "id": 3,
+      "name": "Chet Soda",
+      "phone": "(213)777-6789"
+    }
+  ]
+}

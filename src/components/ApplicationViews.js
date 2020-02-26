@@ -1,12 +1,18 @@
 import { Route } from "react-router-dom";
 import React from "react";
 import Home from "./home/Home";
-import AnimalList from "../modules/modules/animal/AnimalList";
-//only include these once they are built - previous practice exercise
-import LocationList from "../modules/modules/location/LocationList";
-import EmployeeList from "../modules/modules/employee/EmployeeList";
-import OwnerList from "../modules/modules/owner/OwnerList";
+// vvv Animals vvv //
+import AnimalList from "../modules/animal/AnimalList";
+import AnimalDetail from "../modules/animal/AnimalDetail";
+// vvv Locations vvv //
+import LocationList from "../modules/location/LocationList";
+import LocationDetail from "../modules/location/LocationDetail"
+// vvv Employees vvv //
+import EmployeeList from "../modules/employee/EmployeeList";
+// vvv Owners vvv //
+import OwnerList from "../modules/owner/OwnerList";
 
+// vvv routes each listed component to the proper URL to be displayed vvv // 
 const ApplicationViews = () => {
   return (
     <React.Fragment>
@@ -17,9 +23,22 @@ const ApplicationViews = () => {
           return <Home />;
         }}
       />
-      <Route path="/animals" render={(props) => {
-      return <AnimalList />
-    }} />
+      {/* vvv Without the 'exact' keyword, the second route would also handle /animals/:animalId vvv  */}
+     <Route exact path="/animals" render={(props) => {
+  return <AnimalList />
+}} />
+<Route path="/animals/:animalId(\d+)" render={(props) => {
+  // Pass the animalId to the AnimalDetailComponent
+  return <AnimalDetail animalId={parseInt(props.match.params.animalId)}
+  {...props}
+  //  ^^^  This is a new route to handle a URL with the following pattern:
+  // http://localhost:3000/animals/1 or what ever the id is
+
+  // It will not handle the following URL because the `(\d+)`
+  // matches only numbers after the final slash in the URL
+  // // http://localhost:3000/animals/jack ^^^ 
+  />
+}} />
       <Route
         path="/employees"
         render={props => {
@@ -27,11 +46,15 @@ const ApplicationViews = () => {
         }}
       />
       <Route
-        path="/locations"
+        exact path="/locations"
         render={props => {
           return <LocationList />;
         }}
       />
+      <Route path="/locations/:locationId(\d+)"
+      render={(props) => {
+        return <LocationDetail locationId={parseInt(props.match.params.locationId)}/>
+      }} />
       <Route
         path="/owners"
         render={props => {
