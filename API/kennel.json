@@ -11,6 +11,18 @@
       "name": "piper",
       "breed": "mutt",
       "imageUrl": "2018-03-17 16.26.31-1.jpg"
+    },
+    {
+      "name": "joey",
+      "breed": "german shepherd ",
+      "imageUrl": "dog.svg",
+      "id": 3
+    },
+    {
+      "name": "steve",
+      "breed": "irish Sh** Hound",
+      "imageUrl": "dog.svg",
+      "id": 4
     }
   ],
   "employees": [
@@ -23,6 +35,11 @@
       "id": 3,
       "name": "Freaky Fred",
       "position": "Cat Corraler"
+    },
+    {
+      "name": "Sam Spooky",
+      "position": "Dog Gardener",
+      "id": 4
     }
   ],
   "locations": [
@@ -30,6 +47,11 @@
       "id": 2,
       "name": "Folsom",
       "address": "777 Blues Cr., Folsom, CA"
+    },
+    {
+      "name": "Franklin",
+      "address": "124 Main St.",
+      "id": 3
     }
   ],
   "owners": [
@@ -42,6 +64,11 @@
       "id": 3,
       "name": "Chet Soda",
       "phone": "(213)777-6789"
+    },
+    {
+      "name": "Petey Pooper",
+      "phone": "6155551234",
+      "id": 4
     }
   ]
 }

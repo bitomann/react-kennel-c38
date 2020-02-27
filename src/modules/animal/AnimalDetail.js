@@ -4,7 +4,7 @@ import './AnimalDetail.css'
 import {firstLetterCase} from '../helpers'
 
 const AnimalDetail = props => {
-  const [animal, setAnimal] = useState({ name: "", breed: "", imageUrl: "images.jpeg" });
+  const [animal, setAnimal] = useState({ name: "", breed: "", imageUrl: "dog.svg" });
   const [isLoading, setIsLoading] = useState(true);
 
 const handleDelete = () => {
