@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { firstLetterCase } from "../helpers";
 import LocationManager from './LocationManager';
 import './LocationDetail.css';
 
@@ -32,7 +33,7 @@ const handleDelete = () => {
         <picture>
         <img src={require('./dog-shelter-260nw-388594126.webp')} alt="Prison Dog" />
         </picture>
-        <h3>Name: <span style={{ color: 'darkslategrey' }}>{location.name}</span></h3>
+        <h3>Name: <span style={{ color: 'darkslategrey' }}>{firstLetterCase(location.name)}</span></h3>
         <p>Address: {location.address}</p>
         <button type="button" disabled={isLoading} onClick={handleDelete}>
         Close Location

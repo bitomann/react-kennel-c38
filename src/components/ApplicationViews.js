@@ -6,9 +6,12 @@ import Login from "./auth/Login";
 import AnimalList from "../modules/animal/AnimalList";
 import AnimalDetail from "../modules/animal/AnimalDetail";
 import AnimalForm from "../modules/animal/AnimalForm";
+import AnimalEditForm from "../modules/animal/AnimalEditForm";
 // vvv Employees vvv //
 import EmployeeList from "../modules/employee/EmployeeList";
+import EmployeeDetail from "../modules/employee/EmployeeDetail";
 import EmployeeForm from "../modules/employee/EmployeeForm";
+import EmployeeEditForm from "../modules/employee/EmployeeEditForm";
 // vvv Locations vvv //
 import LocationList from "../modules/location/LocationList";
 import LocationDetail from "../modules/location/LocationDetail";
@@ -25,10 +28,11 @@ const isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
   return (
     <React.Fragment>
       <Route exact path="/" render={props => {
-          return <Home />;
-        }}
+          return <Home {...props} /> ;
+    }}
       />
-      <Route path="/login" component={Login} />
+      <Route path="/login" component={Login} 
+      />
       {/* vvv Without the 'exact' keyword, the second route would also handle /animals/:animalId vvv  */}
       <Route exact path="/animals" render={props => {
         if (isAuthenticated()) {
@@ -36,36 +40,61 @@ const isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
         } else {
         return <Redirect to="/login" />
         }
-        }} 
+    }} 
       />
-      <Route path="/animals/:animalId(\d+)" render={(props) => {
-  // Pass the animalId to the AnimalDetailComponent
-     return <AnimalDetail animalId={parseInt(props.match.params.animalId)}
-        {...props}/>
-   /* ^^^ {...props} = 'Spread Operator' - for <AnimalDetail> to have access 
-    to the router history, we need to pass those props to the component. 
-    All of the 'props' are copied onto the component's props. ^^^ //
-    ^^^  This is a new route to handle a URL with the following pattern:
-    http://localhost:3000/animals/1 or what ever the id is
-
-    It will not handle the following URL because the `(\d+)`
-    matches only numbers after the final slash in the URL
-    http://localhost:3000/animals/jack ^^^ */
+      <Route path="/animals/:animalId(\d+)/edit" render={props => {
+        if (isAuthenticated()) {
+        return <AnimalEditForm {...props} />
+      } else {
+        return <Redirect to="/login" />
+      }
+    }}
+      />
+      <Route exact path="/animals/:animalId(\d+)" render={props => {
+        if (isAuthenticated()) {
+        return <AnimalDetail animalId={parseInt(props.match.params.animalId)} {...props} />
+      } else {
+        return <Redirect to="/login" />
+      }
     }}
       />
       <Route path="/animals/new" render={(props) => {
         return <AnimalForm {...props} />
     }}
       />
-      <Route exact path="/employees" render={(props) => {
+      <Route exact path="/employees" render={props => {
+        if (isAuthenticated()) {
         return <EmployeeList {...props} />
-    }} 
+        } else {
+        return <Redirect to="/login" />
+    }
+    }}
+      />
+      <Route path="/employees/:employeeId(\d+)/edit" render={props => {
+        if (isAuthenticated()) {
+        return <EmployeeEditForm {...props} />
+      } else {
+        return <Redirect to="/login" />
+    }
+    }}
+      />
+      <Route exact path="/employees/:employeeId(\d+)" render={props => {
+        if (isAuthenticated()) {
+        return <EmployeeDetail employeeId={parseInt(props.match.params.employeeId)} {...props} />
+      } else {
+        return <Redirect to="/login" />
+      }
+    }}
       />
       <Route path="/employees/new" render={(props) => {
           return <EmployeeForm {...props} />
     }} />
-      <Route exact path="/locations" render={(props) => {
-          return <LocationList {...props} />
+      <Route exact path="/locations" render={props => {
+        if (isAuthenticated()) {
+        return <LocationList {...props} />
+        } else {
+        return <Redirect to="/login" />
+    }
     }}
       />
       <Route path="/locations/new" render={(props) => {
@@ -77,12 +106,24 @@ const isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
         return <LocationDetail locationId={parseInt(props.match.params.locationId)}
        {...props}/>
     }} />
-      <Route exact path="/owners" render={(props) => {
+      <Route exact path="/owners" render={props => {
+        if (isAuthenticated()) {
         return <OwnerList {...props} />
+        } else {
+        return <Redirect to="/login" />
+    }
     }}
       />
       <Route path="/owners/new" render={(props) => {
           return <OwnerForm {...props} />
+    }}
+      />
+      <Route exact path="/locations/:locationId(\d+)" render={props => {
+        if (isAuthenticated()) {
+        return <LocationDetail locationId={parseInt(props.match.params.locationId)} {...props} />
+      } else {
+        return <Redirect to="/login" />
+      }
     }}
       />
     </React.Fragment>

@@ -1,4 +1,6 @@
 import React from "react";
+import { firstLetterCase } from "../helpers";
+import { formatPhoneNumber } from "../helpers"
 import "./Owner.css";
 
 const ownerCard = (props) => {
@@ -9,9 +11,9 @@ const ownerCard = (props) => {
           <img src={require('./jrGQI0U.jpg')} alt="Dumb Dog Owner" />
         </picture>
         <h3>Name: <span className="card-ownerName">
-          {props.owner.name}
+          {firstLetterCase(props.owner.name)}
         </span></h3>
-        <p>Phone: {props.owner.phone}</p>
+        <p>Phone: {formatPhoneNumber(props.owner.phone)}</p>
         <button type="button" onClick={() => props.deleteOwner(props.owner.id)}>Banned</button>
       </div>
     </div>

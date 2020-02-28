@@ -32,7 +32,8 @@ AnimalManager.delete(props.animalId)
     <div className="card">
       <div className="card-content">
         <picture>
-          <img src={require(`./dogImages/${animal.imageUrl}`)} alt="My Dog" />
+          {/* <img src={require(`./dogImages/${animal.imageUrl}`)} alt="My Dog" /> */}
+          <img src={require(`./dogImages/dog.svg`)} alt="My Dog" />
         </picture>
         <h3>Name: <span style={{ color: 'darkslategrey' }}>{firstLetterCase(animal.name)}</span></h3>
         <p>Breed: {firstLetterCase(animal.breed)}</p>
