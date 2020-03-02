@@ -49,7 +49,9 @@ console.log("About to return JSX", animals);
         <AnimalCard
           key={animal.id}
           animal={animal}
-          deleteAnimal={deleteAnimal} />)}
+          deleteAnimal={deleteAnimal}
+          {...props}
+          />)}
     </div>
   </>
   );

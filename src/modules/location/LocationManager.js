@@ -14,11 +14,20 @@ export default {
   },
   post(newLocation) {
     return fetch(`${remoteURL}/locations`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(newLocation)
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newLocation)
     }).then(data => data.json())
+  },
+  update(editedLocation) {
+    return fetch(`${remoteURL}/locations/${editedLocation.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(editedLocation)
+  }).then(data => data.json());
 }
 }

@@ -31,7 +31,8 @@ const EmployeeList = (props) => {
   return (
   <>
     <section className="section-content">
-      <button type="button" className="btn"
+      <button type="button" 
+      className="btn"
       onClick={() => {props.history.push("/employees/new")}}>
       Add Employee
       </button>
@@ -42,7 +43,9 @@ const EmployeeList = (props) => {
         <EmployeeCard
           key={employee.id}
           employee={employee}
-          deleteEmployee={deleteEmployee} />)}
+          deleteEmployee={deleteEmployee}
+          {...props}
+          />)}
     </div>
   </>
   );

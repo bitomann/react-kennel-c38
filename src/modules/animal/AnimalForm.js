@@ -44,7 +44,7 @@ const AnimalForm = props => {
               required
               onChange={handleFieldChange}
               id="breed"
-              placeholder="Breed"
+              placeholder="breed"
             />
             <label htmlFor="breed">Breed</label>
           </div>

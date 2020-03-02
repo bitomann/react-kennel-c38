@@ -2,27 +2,15 @@
   "animals": [
     {
       "id": 2,
-      "name": "billy-Bob",
-      "breed": "pitbull",
-      "imageUrl": "images.jpeg"
+      "name": "Billy-Bob",
+      "breed": "pitbull"
     },
     {
-      "id": 1,
-      "name": "piper",
-      "breed": "mutt",
-      "imageUrl": "2018-03-17 16.26.31-1.jpg"
-    },
-    {
-      "name": "joey",
-      "breed": "german shepherd ",
+      "id": 3,
+      "name": "buba",
+      "breed": "German Sheperd",
       "imageUrl": "dog.svg",
-      "id": 3
-    },
-    {
-      "name": "steve",
-      "breed": "irish Sh** Hound",
-      "imageUrl": "dog.svg",
-      "id": 4
+      "employeeId": 1
     }
   ],
   "employees": [
@@ -49,9 +37,14 @@
       "address": "777 Blues Cr., Folsom, CA"
     },
     {
-      "name": "Franklin",
-      "address": "124 Main St.",
+      "name": "franklin City Jail",
+      "address": "130 Sturbridge Dr, Franklin, TN",
       "id": 3
+    },
+    {
+      "name": "Phoenix Shelters",
+      "address": "1757 Calle del Norte Phoenix, AZ",
+      "id": 4
     }
   ],
   "owners": [
@@ -63,11 +56,11 @@
     {
       "id": 3,
       "name": "Chet Soda",
-      "phone": "(213)777-6789"
+      "phone": "2137776789"
     },
     {
-      "name": "Petey Pooper",
-      "phone": "6155551234",
+      "name": "petey PooperScooper",
+      "phone": "6157389273",
       "id": 4
     }
   ]
