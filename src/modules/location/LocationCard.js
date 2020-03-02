@@ -1,6 +1,5 @@
 import React from "react";
 import { firstLetterCase } from "../helpers";
-import { Link } from "react-router-dom";
 import "./Location.css";
 
 const LocationCard = (props) => {
@@ -10,14 +9,19 @@ const LocationCard = (props) => {
         <picture>
           <img src={require('./dog-shelter-260nw-388594126.webp')} alt="Prison Dog" />
         </picture>
-        <h3>Name: <span className="card-locationName">
-          {firstLetterCase(props.location.name)}
-        </span></h3>
-        <p>Address: {props.location.address}</p>
-        <Link to={`/locations/${props.location.id}`}>
-        <button>Details</button>
-        </Link>
-        <button type="button" onClick={() => props.deleteLocation(props.location.id)}>Closed</button>
+        <h3>Name: 
+          <span className="card-locationName">
+          {firstLetterCase(props.locationObject.name)}
+          </span>
+        </h3>
+        <p>Address: {props.locationObject.address}</p>
+        <button type="button" onClick={() => { props.history.push(`/locations/${props.locationObject.id}/details`) }}>
+        Details
+        </button>
+        <button type="button" onClick={() => props.history.push(`/locations/${props.locationObject.id}/edit`)}>
+        Edit
+        </button>
+        <button type="button" onClick={() => props.deleteLocation(props.locationObject.id)}>Closed</button>
       </div>
     </div>
   );

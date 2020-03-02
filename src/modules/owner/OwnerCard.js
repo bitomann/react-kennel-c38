@@ -14,6 +14,9 @@ const ownerCard = (props) => {
           {firstLetterCase(props.owner.name)}
         </span></h3>
         <p>Phone: {formatPhoneNumber(props.owner.phone)}</p>
+        <button type="button" onClick={() => props.history.push(`/owners/${props.owner.id}/edit`)}>
+        Edit
+        </button>
         <button type="button" onClick={() => props.deleteOwner(props.owner.id)}>Banned</button>
       </div>
     </div>

@@ -6,14 +6,11 @@
       "breed": "pitbull"
     },
     {
-      "id": 1,
-      "name": "Piper",
-      "breed": "Mutt"
-    },
-    {
       "id": 3,
-      "name": "joey",
-      "breed": "german Shepherd "
+      "name": "buba",
+      "breed": "German Sheperd",
+      "imageUrl": "dog.svg",
+      "employeeId": 1
     }
   ],
   "employees": [
@@ -59,7 +56,7 @@
     {
       "id": 3,
       "name": "Chet Soda",
-      "phone": "(213)777-6789"
+      "phone": "2137776789"
     },
     {
       "name": "petey PooperScooper",

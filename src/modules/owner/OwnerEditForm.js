@@ -1,39 +1,39 @@
 import React, { useState, useEffect } from "react";
-import LocationManager from "./LocationManager";
-import "./LocationForm.css";
+import OwnerManager from "../owner/OwnerManager";
+import "./OwnerForm.css";
 
-const LocationEditForm = props => {
-  const [location, setLocation] = useState({ name: "", address: "" });
+const OwnerEditForm = props => {
+  const [owner, setOwner] = useState({ name: "", phone: "" });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
-    const stateToChange = { ...location };
+    const stateToChange = { ...owner };
     stateToChange[evt.target.id] = evt.target.value;
-    setLocation(stateToChange);
+    setOwner(stateToChange);
   };
 
-  const updateExistingLocation = evt => {
+  const updateExistingOwner = evt => {
     evt.preventDefault()
     setIsLoading(true);
 
     // This is an edit, so we need the id
-    const editedLocation = {
-      id: props.match.params.locationId,
-      name: location.name,
-      address: location.address
+    const editedOwner = {
+      id: props.match.params.ownerId,
+      name: owner.name,
+      phone: owner.phone
     };
 
-    LocationManager.update(editedLocation)
-      .then(() => props.history.push("/locations"))
+    OwnerManager.update(editedOwner)
+      .then(() => props.history.push("/owners"))
   }
-  
+
   useEffect(() => {
-    LocationManager.get(props.match.params.locationId)
-      .then(location => {
-        setLocation(location);
+    OwnerManager.get(props.match.params.ownerId)
+      .then(owner => {
+        setOwner(owner);
         setIsLoading(false);
       });
-  }, [props.match.params.locationId]);
+  }, [props.match.params.ownerId]);
 
   return (
     <>
@@ -46,24 +46,24 @@ const LocationEditForm = props => {
               className="form-control"
               onChange={handleFieldChange}
               id="name"
-              value={location.name}
+              value={owner.name}
             />
-            <label htmlFor="name">Location name</label>
+            <label htmlFor="name">Owner name</label>
 
             <input
               type="text"
               required
               className="form-control"
               onChange={handleFieldChange}
-              id="address"
-              value={location.address}
+              id="phone"
+              value={owner.phone}
             />
-            <label htmlFor="address">address</label>
+            <label htmlFor="phone">phone</label>
           </div>
           <div className="alignRight">
             <button
               type="button" disabled={isLoading}
-              onClick={updateExistingLocation}
+              onClick={updateExistingOwner}
               className="btn btn-primary"
             >Submit</button>
           </div>
@@ -73,4 +73,4 @@ const LocationEditForm = props => {
   );
 }
 
-export default LocationEditForm
+export default OwnerEditForm
